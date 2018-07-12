@@ -1,0 +1,11 @@
+﻿  NET.cpp
+c:\users\denwi\desktop\tetris_ai_v2\net.cpp(3): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\denwi\desktop\tetris_ai_v2\net.cpp(13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\denwi\desktop\tetris_ai_v2\net.cpp(16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\denwi\desktop\tetris_ai_v2\net.cpp(19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\denwi\desktop\tetris_ai_v2\net.cpp(44): warning C4244: 'argument': conversion from 'float' to 'unsigned __int64', possible loss of data
+c:\users\denwi\desktop\tetris_ai_v2\net.cpp(256): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\denwi\desktop\tetris_ai_v2\net.cpp(280): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\denwi\desktop\tetris_ai_v2\net.cpp(259): warning C4700: uninitialized local variable 'newConnector' used
+  Tetris_AI_v2.vcxproj -> C:\Users\denwi\Desktop\Tetris_AI_v2\x64\Debug\Tetris_AI_v2.exe
+  Tetris_AI_v2.vcxproj -> C:\Users\denwi\Desktop\Tetris_AI_v2\x64\Debug\Tetris_AI_v2.pdb (Full PDB)
