@@ -1,6 +1,8 @@
 #include "NET.h"
 
-const float connectionChance = 0.3;
+const float connectionChance = 0.3; // Chance to connect nodes
+const float nodeChance = 0.1; // Chance to create node/neuron
+const float hiddenLayerBias = 0.5;
 
 // Default constructor to create the input layer and output layers
 NET::NET(int inputs, int outputs)
@@ -8,15 +10,21 @@ NET::NET(int inputs, int outputs)
 
 	_numInputs = inputs;
 	_numOutputs = outputs;
-	 // Randmom value to see if connections are made
-	// 0 -1
+
+	 // Random float value to see if connections are made
+	 // 0.0 - 1.0
 	 float n = ((double)rand() / RAND_MAX);
+
+	 // Random float value to see if node will be made
+	 float x = ((double)rand() / RAND_MAX);
 
 	 // Random value for which input to connect from
 	 float c = rand() % inputs;
 
 	 // Random value for which input to connect to
 	 float t = rand() % outputs;
+
+	
 
 
 	//std::cout << "Net being made" << std::endl;
@@ -29,6 +37,7 @@ NET::NET(int inputs, int outputs)
 	}
 
 	m_Layers.push_back(Layer());
+
 	//std::cout << "Output" << std::endl;
 	for (int i = 0; i < outputs; i++)
 	{
@@ -37,7 +46,6 @@ NET::NET(int inputs, int outputs)
 
 	}
 
-
 	// 30% chance of creating a connection between a random input neuron and output neuron
 	if (n < connectionChance)
 	{
@@ -45,7 +53,7 @@ NET::NET(int inputs, int outputs)
 	}
 
 	// Try to add new neurons between each input and output
-	/*for (int i = 0; i <= inputs; i++)
+	/*if(x < nodeChance)
 	{
 		addNeuron(m_Layers[0][i], m_Layers[1][t]);
 	}*/
@@ -55,6 +63,10 @@ NET::NET(int inputs, int outputs)
 	
 }
 
+
+/*
+	This can be deleted...
+*/
 NET::NET(int inputs, int hiddenNodes, int outputs)
 {
 	_numInputs = inputs;

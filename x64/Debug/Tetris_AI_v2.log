@@ -1,11 +1,42 @@
-﻿  NET.cpp
-c:\users\denwi\desktop\tetris_ai_v2\net.cpp(3): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\denwi\desktop\tetris_ai_v2\net.cpp(13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\denwi\desktop\tetris_ai_v2\net.cpp(16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\denwi\desktop\tetris_ai_v2\net.cpp(19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\denwi\desktop\tetris_ai_v2\net.cpp(44): warning C4244: 'argument': conversion from 'float' to 'unsigned __int64', possible loss of data
-c:\users\denwi\desktop\tetris_ai_v2\net.cpp(256): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-c:\users\denwi\desktop\tetris_ai_v2\net.cpp(280): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-c:\users\denwi\desktop\tetris_ai_v2\net.cpp(259): warning C4700: uninitialized local variable 'newConnector' used
-  Tetris_AI_v2.vcxproj -> C:\Users\denwi\Desktop\Tetris_AI_v2\x64\Debug\Tetris_AI_v2.exe
-  Tetris_AI_v2.vcxproj -> C:\Users\denwi\Desktop\Tetris_AI_v2\x64\Debug\Tetris_AI_v2.pdb (Full PDB)
+﻿  main.cpp
+d:\ai\tetris_ai_v2\genome.h(15): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\ai\tetris_ai_v2\genome.h(16): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\ai\tetris_ai_v2\genome.h(17): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\ai\tetris_ai_v2\main.cpp(66): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\ai\tetris_ai_v2\main.cpp(67): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\ai\tetris_ai_v2\main.cpp(246): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(418): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(470): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\ai\tetris_ai_v2\main.cpp(683): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(691): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(711): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(760): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(775): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(785): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(803): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(804): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\main.cpp(722): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\denwis\desktop\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+d:\ai\tetris_ai_v2\main.cpp(731): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\denwis\desktop\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+d:\ai\tetris_ai_v2\main.cpp(740): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\denwis\desktop\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+d:\ai\tetris_ai_v2\main.cpp(749): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\denwis\desktop\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+d:\ai\tetris_ai_v2\main.cpp(765): warning C4996: 'sf::Text::setColor': was declared deprecated
+  c:\users\denwis\desktop\sfml-2.4.2\include\sfml\graphics\text.hpp(177): note: see declaration of 'sf::Text::setColor'
+  NET.cpp
+d:\ai\tetris_ai_v2\net.cpp(3): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\ai\tetris_ai_v2\net.cpp(4): warning C4305: 'initializing': truncation from 'double' to 'float'
+d:\ai\tetris_ai_v2\net.cpp(16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\net.cpp(19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\net.cpp(22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\net.cpp(25): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+d:\ai\tetris_ai_v2\net.cpp(52): warning C4244: 'argument': conversion from 'float' to 'unsigned __int64', possible loss of data
+d:\ai\tetris_ai_v2\net.cpp(268): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+d:\ai\tetris_ai_v2\net.cpp(292): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+d:\ai\tetris_ai_v2\net.cpp(271): warning C4700: uninitialized local variable 'newConnector' used
+d:\ai\tetris_ai_v2\main.cpp(290): warning C4715: 'checkHoles': not all control paths return a value
+  Tetris_AI_v2.vcxproj -> D:\AI\Tetris_AI_v2\x64\Debug\Tetris_AI_v2.exe
+  Tetris_AI_v2.vcxproj -> D:\AI\Tetris_AI_v2\x64\Debug\Tetris_AI_v2.pdb (Full PDB)

@@ -1,3 +1,16 @@
+/*
+	Complete:
+		Generate individual neural networks for each genome...
+		Generate random connections between input and output layer...
+		Each connection has weights
+
+	TODO:
+		1. Generate random nodes
+		2. Display input values in real-time...
+		3. Display connection values...
+		4. Display everything...
+*/
+
 #include <SFML/Graphics.hpp>
 #include <time.h>
 #include <iostream>	// Use for debugging
@@ -122,6 +135,7 @@ struct Point
 
 
 /*
+	Figures follow this layout
 	[0][1]
 	[2][3]
 	[4][5]
@@ -753,6 +767,10 @@ int main()
 		fitness_Text.setPosition(20, 420);
 		fitness_Text.setColor(Color::Red);
 		window.draw(fitness_Text);
+
+		// Display inuts...
+		std::string input1 = std::string("Input[0]: ") + std::to_string(score);
+
 
 
 		genomes[currentGenome].updateFitness(getFitness(score,
