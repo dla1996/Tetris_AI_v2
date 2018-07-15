@@ -8,6 +8,13 @@ Neuron::Neuron()
 	_outputVal = 0.0;
 }
 
+Neuron::Neuron(int numNeuron)
+{
+	neuronID = numNeuron;
+	_inputVal = 0.0;
+	_outputVal = 0.0;
+}
+
 // Creating Neurons within loops
 Neuron::Neuron(int numNeuron,int numConnections, bool isOutput, bool isInput)
 {

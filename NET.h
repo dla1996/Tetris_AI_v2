@@ -26,6 +26,7 @@ public:
 
 	// Get a 4 vector output from current inputs.
 	std::vector<float> evaluateInputs();
+	void addNeuron();
 	void addNeuron(Neuron & n1, Neuron & n2);
 
 	// Layer of neurons

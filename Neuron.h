@@ -24,6 +24,7 @@ class Neuron
 {
 public:
 	Neuron();
+	Neuron(int numNeuron);
 	Neuron(int numNeuron, bool isOutput);
 	Neuron(int numNeuron, int numConnections, bool isOutput, bool isInput);
 

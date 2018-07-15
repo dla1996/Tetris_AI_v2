@@ -1,10 +1,11 @@
 #include "NET.h"
 
 const float connectionChance = 0.3; // Chance to connect nodes
-const float nodeChance = 0.1; // Chance to create node/neuron
+const float nodeChance = 0.1;		// Chance to create node/neuron
 const float hiddenLayerBias = 0.5;
 
 // Default constructor to create the input layer and output layers
+// And chance to create connections and nodes...
 NET::NET(int inputs, int outputs)
 {
 
@@ -46,17 +47,50 @@ NET::NET(int inputs, int outputs)
 
 	}
 
-	// 30% chance of creating a connection between a random input neuron and output neuron
-	if (n < connectionChance)
+	// Try to add new neuron
+	if (x < nodeChance)
 	{
-		makeConnection(m_Layers[0][c], m_Layers[m_Layers.size() - 1][t]);
+		std::cout << "Make new neuron" << std::endl;
+		// Connect at input layer node c, to output layer node t
+		addNeuron();
 	}
 
-	// Try to add new neurons between each input and output
-	/*if(x < nodeChance)
+	// If no neurons in hidden layer are seen...
+	if (m_Layers.size() == 2)
 	{
-		addNeuron(m_Layers[0][i], m_Layers[1][t]);
-	}*/
+		// 30% chance of creating a connection between a random input neuron and output neuron
+		if (n < connectionChance)
+		{
+			makeConnection(m_Layers[0][c], m_Layers[m_Layers.size() - 1][t]);
+		}
+	}
+
+	// If hidden layer was created for new neuron...
+	if (m_Layers.size() == 3)
+	{
+		int layer1 = rand() % 3;	// Choose which layer to grab from
+		int layer2 = rand() % 3;	// Choose which layer to grab from
+
+		// Keep getting which layer until they aren't the same
+		while (layer1 == layer2)
+		{
+			layer1 = rand() % 3;
+			layer2 = rand() % 3;
+		}
+		int neuron1 = rand() % (m_Layers[layer1].size()+1);		// Choose a random neuron in layer
+		int neuron2 = rand() % (m_Layers[layer2].size()+1);		// Choose a random neuron in layer
+		
+		// Make sure that the neurons aren't the same
+		if (neuron1 != neuron2)
+		{
+			// 30% chance of creating a connection between a random input neuron and output neuron
+			if (n < connectionChance)
+			{
+				makeConnection(m_Layers[layer1][neuron1], m_Layers[layer2][neuron2]);
+			}
+		}
+		
+	}
 
 
 
@@ -246,17 +280,20 @@ std::vector<float> NET::evaluateInputs()
 	return output;
 }
 
-// Add a neuron in between two neurons
+// Add a neuron to hidden layer...
 void NET::addNeuron(Neuron &n1, Neuron &n2)
 {
 	Neuron *neuron1 = &n1, *neuron2 = &n2;
 	Neuron *newNeuron = new Neuron();
+
+	// Check for connections present between neurons n1 and n2
 	int connection = checkConnection(n1, n2);
+	
 	// If there is a connection present...
 	if (connection)
 	{
 		// Connect 
-		Connection *newConnector;
+		Connection *newConnector = new Connection(1);
 		// Repoint old connection from to point to new neuron
 		neuron1->_connections[connection - 1].from = newNeuron;
 
@@ -278,7 +315,31 @@ void NET::addNeuron(Neuron &n1, Neuron &n2)
 		// newConnector values, input and output
 		newConnector->setValues(neuron1->_outputVal);
 
+		// Add new neuron to hidden layer
+		if (m_Layers.size() == 2)
+		{
+			// If no hidden layer was created
+			m_Layers.push_back(Layer());
+		}
+		m_Layers[m_Layers.size()].push_back(*newNeuron);	//	Add the new neuron to the hidden layer
 	}
+	else
+	{
+		// If there are no connections present between 
+	}
+
+}
+
+// Add a neuron to hidden layer...
+void NET::addNeuron()
+{
+	// Push back a new layer of neurons
+	m_Layers.push_back(Layer());
+
+	// Create a new neuron with the size of the hidden layer...
+	Neuron *newNeuron = new Neuron(m_Layers.back().size());
+
+	m_Layers.back().push_back(*newNeuron);
 
 }
 
@@ -289,17 +350,17 @@ void NET::makeConnection(Neuron &n1, Neuron &n2)
 	Neuron *neuron1 = &n1;
 	Neuron *neuron2 = &n2;
 
-	int numConnections = neuron1->_connections.size();
-	Connection *connector = new Connection(numConnections+1);
+	int numConnections = neuron1->_connections.size();			// Get the current number of connections present
+	Connection *connector = new Connection(numConnections+1);	// Create a new connector connection 
 
 	int connection = checkConnection(n1, n2);
 
 	// If no connection present...
 	if (connection == 0)
 	{
-		std::cout << "Making connection between " << n1.neuronID - 1  << " and " << n2.neuronID - 1 << std::endl;
+		std::cout << "Making connection between " << n1.neuronID  << " and " << n2.neuronID << std::endl;
 
-		// Make connector point from n1 to n2
+		// Make connector point from n1 and point to n2
 		connector->from = neuron1;
 		connector->to = neuron2;
 
@@ -321,6 +382,7 @@ void NET::makeConnection(Neuron &n1, Neuron &n2)
 int NET::checkConnection(Neuron &n1, Neuron &n2)
 {
 	int connectionID = 0;
+
 	// Iterate through n1's connections
 	std::vector<Connection>::iterator it;
 	for (it = n1._connections.begin(); it != n1._connections.end(); it++)
@@ -328,13 +390,13 @@ int NET::checkConnection(Neuron &n1, Neuron &n2)
 		// Check if the connector is coming from and to the same addresses as n1 and n2
 		if (it->from == &n1 && it->to == &n2)
 		{
-			std::cout << "Connection present between " << n1.neuronID - 1 << " and " << n2.neuronID - 1 << std::endl;
+			std::cout << "Connection present between ID's " << n1.neuronID << " and " << n2.neuronID << std::endl;
 			
 			return it->connectID;
 		}
 	}
 
-	std::cout << "No connection between " << n1.neuronID - 1 << " and " << n2.neuronID - 1 << std::endl;
+	std::cout << "No connection between ID's " << n1.neuronID << " and " << n2.neuronID << std::endl;
 	return 0;
 
 }
